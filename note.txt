@@ -1,0 +1,48 @@
+1.
+# Rule
+- Normally, check last digit and...
+  1 -> += "st"
+  2 -> += "nd"
+  3 -> += "rd"
+  default -> += "th"
+- Exceptionally, check last 2 digit and...
+  11 -> += "th"
+  12 -> += "th"
+  13 -> += "th"
+
+# Plan
+- check last 2 digit and if...
+  11 -> += "th"
+  12 -> += "th"
+  13 -> += "th"
+
+  else, check last 1 digit and if...
+  1 -> += "st"
+  2 -> += "nd"
+  3 -> += "rd"
+  default -> += "th"
+
+2.
+# Rule
+- A week include 1 or 2 Sunday. -> 7 days include 1 or 2 Sunday.
+- If it is started from Monday, 7 days include only 1 Sunday.
+
+# Plan
+- Get the day of the date_from. Get the date of next monday (call it _date_from) and count Sunday during it and date_from.
+- Calculate "(date_to - _date_from) / 7". it means the number of Sunday.
+
+3-1.
+# Rule
+- uppercase and lowercase Latin letters A to Z and a to z
+- digits 0 to 9
+- printable characters !#$%&'*+-/=?^_`{|}~
+- dot ., provided that it is not the first or last character and provided also that it does not appear consecutively (e.g., John..Doe@example.com is not allowed).
+
+- uppercase and lowercase Latin letters A to Z and a to z;
+- digits 0 to 9, provided that top-level domain names are not all-numeric;
+- hyphen -, provided that it is not the first or last character.
+
+# Plan
+- \w = All digits and latin letters
+
+^[\w!#%&'/=~`\*\+\?\{\}\^\$\-\|]+(\.[\w!#%&'/=~`\*\+\?\{\}\^\$\-\|]+)*@[\w!#%&'/=~`\*\+\?\{\}\^\$\-\|]+(\.[\w!#%&'/=~`\*\+\?\{\}\^\$\-\|]+)*$
